@@ -1,0 +1,22 @@
+{
+  "name": "johnny-music",
+  "version": "1.0.0",
+  "description": "Johnny Music: the music half of Johnny (prefix-only, no slash commands), built to run on a phone in Termux apart from the main bot",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "debug": "DEBUG=1 node index.js",
+    "check": "find . -name \"*.js\" -not -path \"./node_modules/*\" -print0 | xargs -0 -n1 node --check",
+    "test": "node scripts/test-music.js",
+    "postinstall": "node scripts/install-yt-dlp.js",
+    "simulate": "node scripts/simulate-music.js && node scripts/test-music.js"
+  },
+  "dependencies": {
+    "@livekit/rtc-node": "latest",
+    "baff.js": "latest"
+  }
+}
